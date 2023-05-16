@@ -1,0 +1,46 @@
+{
+  "devDependencies": {
+    "@babel/core": "^7.0.0-0",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.18.6",
+    "@babel/preset-env": "^7.12.11",
+    "@babel/preset-react": "^7.12.10",
+    "@types/chart.js": "^2.9.37",
+    "@uvarov.frontend/vanilla-calendar": "^2.6.1",
+    "parcel-bundler": "^1.6.1",
+    "ts-loader": "^5.4.5",
+    "typescript": "^3.0.0",
+    "webpack": "^5.82.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^4.15.0"
+  },
+  "name": "temphumiditywebapp",
+  "version": "1.0.0",
+  "main": "base.html",
+  "scripts": {
+    "watch": "watch webpack"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "awesome-typescript-loader": "^5.2.1",
+    "axios": "^1.4.0",
+    "chart.js": "^4.3.3",
+    "chartjs-adapter-date-fns": "^3.0.0",
+    "chartjs-adapter-moment": "^1.0.1",
+    "moment": "^2.29.4",
+    "react": "^18.2.0",
+    "react-calendar": "^4.6.0",
+    "react-chartjs-2": "^5.2.0",
+    "react-date-range": "^1.4.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "^5.0.1",
+    "watch": "^0.13.0"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}
