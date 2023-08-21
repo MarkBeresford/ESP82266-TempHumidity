@@ -13,5 +13,5 @@ jobs:
       - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
       - name: Running Python tests
         run: |
-          python -m unittest sensor_reading_tests.py
+          python -m unittest discover
       - run: echo "🍏 This job's status is ${{ job.status }}."
