@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Sensor Data{% endblock %}
+{% block head %}
+    {{ super() }}
+{% endblock %}
+{% block content %}
+<h2>Temperature and Humidy Graph</h2>
+<div id="tempHumViewer"></div>
+{% endblock %}
+{% block scripts %}
+    {{ super() }}
+    <link rel="stylesheet" href=".{{ url_for('static', filename='styles/styles.css') }}"></style>
+    <link rel="stylesheet" href=".{{ url_for('static', filename='styles/default.css') }}"></style>
+    <link rel="stylesheet" href=".{{ url_for('static', filename='styles/temphum.css') }}"></style>
+    <script src=".{{ url_for('static', filename='main-bundle.js') }}"></script>
+
+{% endblock %}
