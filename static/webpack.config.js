@@ -1,5 +1,10 @@
 module.exports = {
-    mode: "development",
+    mode: 'production',
+    performance: {
+      hints: false,
+      maxEntrypointSize: 512000,
+      maxAssetSize: 512000
+    },
     devtool: "inline-source-map",
     entry: {
         main: "./typescript/main.tsx"

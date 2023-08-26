@@ -4,7 +4,6 @@ from model.sensor_reading import extract_sensor_data_from_reading_dynamo, map_to
 
 app = Flask(__name__)
 
-
 class TestSensorReading(unittest.TestCase):
 
     def setUp(self):

@@ -9,9 +9,5 @@
 {% endblock %}
 {% block scripts %}
     {{ super() }}
-    <link rel="stylesheet" href=".{{ url_for('static', filename='styles/styles.css') }}"></style>
-    <link rel="stylesheet" href=".{{ url_for('static', filename='styles/default.css') }}"></style>
-    <link rel="stylesheet" href=".{{ url_for('static', filename='styles/temphum.css') }}"></style>
     <script src=".{{ url_for('static', filename='main-bundle.js') }}"></script>
-
 {% endblock %}
