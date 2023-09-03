@@ -5,19 +5,19 @@ import { Chart as ChartJS } from "chart.js/auto";
 import { 
   CategoryScale, 
   ChartOptions,
-  PluginOptionsByType,
-  TitleOptions
+  ChartData
 } from "chart.js";
+import { SensorData } from "./SensorData";
 
 ChartJS.register(
   CategoryScale
 );
 
-const charOptions: ChartOptions<'scatter'> = {
+const CustomCharOptions: ChartOptions<"line"> = {
   plugins: {
     title: {
       display: true,
-      text: "Temperature humidty graph for ESP32 sensor"
+      text: "Temperature (C) and Humidty (%) detected by DHT11 sensor"
     }
   },
   scales: {
@@ -60,16 +60,39 @@ const charOptions: ChartOptions<'scatter'> = {
   spanGaps: false
 }
 
+function createDatasetsAndLabels(sensorDataInstances: SensorData[]): ChartData<"line", number[], Date> {
+  const sortedSensorDataInstances = sensorDataInstances
+  .sort((a: { sample_time: number }, b: { sample_time: number }) => b.sample_time - a.sample_time)
+  return {
+      labels: sortedSensorDataInstances.map((row: { sample_time: number }) => new Date(row.sample_time)),
+      datasets: [
+          {
+              label: 'Temperature',
+              data: sortedSensorDataInstances.map((row: SensorData) => row.temperature),
+              fill: false,
+              cubicInterpolationMode: 'monotone',
+              tension: 0.4,
+              yAxisID: 'y'
+          },
+          {
+              label: 'Humidity',
+              data: sortedSensorDataInstances.map((row: SensorData) => row.humidity),
+              fill: false,
+              cubicInterpolationMode: 'monotone',
+              tension: 0.4,
+              yAxisID: 'y1',  
+          }
+      ]
+  }
+}
 
-export default function LineChart(chartData) {
-  
-  const dataPresentInTimeRange = (chartData.datasets[0].data.length > 0)
-
-  if (dataPresentInTimeRange) { 
+export default function LineChart(sensorDataInstances: SensorData[]) {
+  const sensorDataArray = Object.values(sensorDataInstances)
+  if (sensorDataArray.length > 0) { 
     return (
       <Line 
-        options={charOptions} 
-        data={chartData}
+        options={CustomCharOptions}
+        data={createDatasetsAndLabels(sensorDataArray)}
       />
     );
   }
